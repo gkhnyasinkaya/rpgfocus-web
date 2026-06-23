@@ -165,6 +165,10 @@
       color: inherit; /* Rengi en alt yazıyla aynı olsun */
     }
 
+    .scroll-handle {
+      display: none;
+    }
+
     /* Mobil Uyum */
     @media (max-width: 900px) {
       body {
@@ -182,7 +186,8 @@
         display: block;
         flex: none; /* Flexbox daralmasını engelliyoruz */
         width: 100vw;
-        height: 100vh;
+        height: calc(100vh - 50px);
+        height: calc(100dvh - 50px);
         padding: 0;
         margin: 0;
       }
@@ -192,6 +197,21 @@
         border: none;
         border-radius: 0;
         box-shadow: none;
+      }
+      .scroll-handle {
+        display: flex;
+        width: 100vw;
+        height: 50px;
+        background-color: var(--wood-dark);
+        border-top: 4px solid var(--wood-light);
+        color: var(--gold);
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        cursor: pointer;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
       }
       .info-column {
         display: flex;
@@ -223,6 +243,9 @@
       <div class="phone-mockup">
         <!-- iframe içinde Flutter web uygulamamız çalışacak -->
         <iframe src="app/index.html"></iframe>
+      </div>
+      <div class="scroll-handle" onclick="document.querySelector('.info-column').scrollIntoView({ behavior: 'smooth' })">
+        👇 DETAYLAR İÇİN DOKUNUN VEYA KAYDIRIN 👇
       </div>
     </div>
 
