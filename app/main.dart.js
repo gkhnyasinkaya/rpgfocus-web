@@ -42567,7 +42567,7 @@ if(r.$2(a,j)>0){s[b]=j
 b=o}}s[b]=a}}
 A.KD.prototype={
 L(a){var s=null,r=A.c([new A.wJ(new A.uF(new A.a8k(),s,s,A.aQ6(),A.aP5(),t.vL),s,s,s,s,t.QQ)],t.Ds)
-return A.aIF(new A.yW(B.Gx,"Doomcat Focus",A.ud(s,A.awt(B.ag,s,s,B.uL),!0),!1,s),r)}}
+return A.aIF(new A.yW(B.Gx,"Idle RPG Focus",A.ud(s,A.awt(B.ag,s,s,B.uL),!0),!1,s),r)}}
 A.a8k.prototype={
 $1(a){return A.aLj()},
 $S:340}

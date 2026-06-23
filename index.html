@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doomcat Focus - JRPG Pomodoro & Odaklanma Uygulaması</title>
+  <title>Idle RPG Focus - JRPG Pomodoro & Odaklanma Uygulaması</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -45,7 +45,7 @@
       justify-content: center;
     }
 
-    /* Sol Kısım: Telefon Çerçevesi */
+    /* Sol Kısım: Ekran Çerçevesi (430x825 Net Görüntü Alanı) */
     .phone-column {
       flex: 1;
       display: flex;
@@ -54,29 +54,14 @@
     }
 
     .phone-mockup {
-      width: 390px;
-      height: 844px;
+      width: 454px; /* 430px iç genişlik + 24px çerçeve payı */
+      height: 849px; /* 825px iç yükseklik + 24px çerçeve payı */
       background-color: #000;
-      border: 14px solid var(--wood-dark);
-      border-radius: 48px;
+      border: 12px solid var(--wood-dark);
+      border-radius: 28px;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 0 4px var(--wood-light);
       position: relative;
       overflow: hidden;
-    }
-
-    /* Telefon çentiği */
-    .phone-mockup::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 150px;
-      height: 25px;
-      background-color: var(--wood-dark);
-      border-bottom-left-radius: 18px;
-      border-bottom-right-radius: 18px;
-      z-index: 10;
     }
 
     .phone-mockup iframe {
@@ -96,7 +81,7 @@
     }
 
     .app-title {
-      font-size: 48px;
+      font-size: 42px;
       font-weight: 800;
       color: var(--gold);
       text-shadow: 2px 4px 0px rgba(0, 0, 0, 0.5);
@@ -170,6 +155,15 @@
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding-top: 16px;
       line-height: 1.5;
+      position: relative;
+    }
+
+    .credits-author {
+      text-align: right;
+      font-style: italic;
+      margin-top: 6px;
+      color: var(--gold-light);
+      font-weight: 600;
     }
 
     /* Mobil Uyum */
@@ -198,7 +192,7 @@
 <body>
 
   <div class="container">
-    <!-- Sol: İnteraktif Telefon Alanı -->
+    <!-- Sol: İnteraktif Ekran Alanı (430x825) -->
     <div class="phone-column">
       <div class="phone-mockup">
         <!-- iframe içinde Flutter web uygulamamız çalışacak -->
@@ -208,13 +202,13 @@
 
     <!-- Sağ: Açıklama ve Detaylar -->
     <div class="info-column">
-      <h1 class="app-title">DOOMCAT FOCUS</h1>
+      <h1 class="app-title">IDLE RPG FOCUS DEMO</h1>
       <p class="app-subtitle">Pixel JRPG Odaklanma & Pomodoro Uygulaması</p>
       
       <div class="divider"></div>
       
       <p class="description">
-        Doomcat Focus, sıkıcı odaklanma ve çalışma turlarını sürükleyici bir piksel rol yapma oyununa (RPG) dönüştürür. 
+        Idle RPG Focus, sıkıcı odaklanma ve çalışma turlarını sürükleyici bir piksel rol yapma oyununa (RPG) dönüştürür. 
         Odaklandıkça canavarları yener, altın biriktirir ve karakterinizi puan dükkanından aldığınız ekipmanlarla güçlendirirsiniz. 
         Geliştirme sürecini anında test etmeniz için hazırlanmış canlı demoyu soldaki telefon simülasyonundan kullanabilirsiniz.
       </p>
@@ -256,6 +250,7 @@
       <div class="credits">
         Bu uygulama yapay zeka (Antigravity AI) kullanılarak sadece "fikir" olarak geliştirilmiştir.<br>
         Müzikler: alkakrab.itch.io | Tasarım JRPG standartlarına uygun olarak kodlanmıştır.
+        <div class="credits-author">— "gyk"</div>
       </div>
     </div>
   </div>
