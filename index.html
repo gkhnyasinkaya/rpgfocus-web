@@ -162,22 +162,43 @@
       text-align: right;
       font-style: italic;
       margin-top: 6px;
-      color: var(--gold-light);
-      font-weight: 600;
+      color: inherit; /* Rengi en alt yazıyla aynı olsun */
     }
 
     /* Mobil Uyum */
     @media (max-width: 900px) {
       body {
-        padding: 20px;
+        padding: 0;
+        background-image: none;
+        background-color: #000;
       }
       .container {
         flex-direction: column;
-        gap: 40px;
-        text-align: center;
+        gap: 0;
+        padding: 0;
+        max-width: 100%;
+      }
+      .phone-column {
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+      }
+      .phone-mockup {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
       }
       .info-column {
+        padding: 40px 20px;
+        background-color: var(--bg-color);
+        background-image: radial-gradient(circle at 50% 50%, #2e1c15 0%, #0f0a08 80%);
+        width: 100%;
+        max-width: 100%;
         align-items: center;
+        box-sizing: border-box;
       }
       .divider {
         width: 100%;
@@ -185,6 +206,7 @@
       }
       .feature-item {
         text-align: left;
+        width: 100%;
       }
     }
   </style>
@@ -217,8 +239,8 @@
         <div class="feature-item">
           <div class="feature-icon">⏱️</div>
           <div class="feature-text">
-            <h3>RPG Odaklanma & Can Barı</h3>
-            <p>Odaklanırken can barınız yavaşça azalır. Süre bittiğinde canavarı yenersiniz, pes ederseniz can barınız sıfırlanır ve ceza alırsınız.</p>
+            <h3>RPG Odaklanma & Canavarı Yenme</h3>
+            <p>Belirlediğiniz odaklanma süresi ve tur sayısı, karşınızdaki canavarın canını (Boss HP) belirler. Odaklandıkça canavara hasar verir ve onu yenmeye çalışırsınız. Karakterinizin canının gitmesi veya ceza alma gibi bir durum yoktur; amaç odaklanarak düşmanı alt etmektir.</p>
           </div>
         </div>
 
@@ -234,15 +256,7 @@
           <div class="feature-icon">💰</div>
           <div class="feature-text">
             <h3>Puan Dükkanı</h3>
-            <p>Odaklanarak kazandığınız altınlarla marketten yeni ve güçlü ekipmanlar, mola kurabiyeleri veya can iksirleri satın alın.</p>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon">🎵</div>
-          <div class="feature-text">
-            <h3>JRPG Müzikleri</h3>
-            <p>Idle (boşta) durumunda ve menülerde çalan, odaklanma başladığında ise otomatik sessize alınan 4 adet atmosferik müzik.</p>
+            <p>Odaklanarak kazandığınız altınlarla marketten ekipmanlar satın alabilirsiniz. Oyunun ilerleyen sürümlerinde sadece karakterinizi değil, kamp alanınızı veya tavernanızı özelleştirip dekore edebileceğiniz yeni eşyalar da eklenecektir.</p>
           </div>
         </div>
       </div>
@@ -250,7 +264,7 @@
       <div class="credits">
         Bu uygulama yapay zeka (Antigravity AI) kullanılarak sadece "fikir" olarak geliştirilmiştir.<br>
         Müzikler: alkakrab.itch.io | Tasarım JRPG standartlarına uygun olarak kodlanmıştır.
-        <div class="credits-author">— "gyk"</div>
+        <div class="credits-author">- gyk</div>
       </div>
     </div>
   </div>
