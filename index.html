@@ -168,17 +168,19 @@
     /* Mobil Uyum */
     @media (max-width: 900px) {
       body {
+        display: block; /* Flex'i devredışı bırakarak dikey akışı serbest bırakıyoruz */
         padding: 0;
         background-image: none;
         background-color: #000;
       }
       .container {
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
+        display: block; /* Flex yerine blok akış */
+        width: 100%;
         max-width: 100%;
       }
       .phone-column {
+        display: block;
+        flex: none; /* Flexbox daralmasını engelliyoruz */
         width: 100vw;
         height: 100vh;
         padding: 0;
@@ -192,6 +194,8 @@
         box-shadow: none;
       }
       .info-column {
+        display: flex;
+        flex-direction: column;
         padding: 40px 20px;
         background-color: var(--bg-color);
         background-image: radial-gradient(circle at 50% 50%, #2e1c15 0%, #0f0a08 80%);
