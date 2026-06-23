@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doomcat Focus - JRPG Pomodoro & Odaklanma Uygulaması</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0f0a08;
+      --wood-dark: #2e1c15;
+      --wood-medium: #3e2723;
+      --wood-light: #5d4037;
+      --gold: #ffc107;
+      --gold-light: #ffe082;
+      --text-color: #f5f5f5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
+      background-image: radial-gradient(circle at 50% 50%, #2e1c15 0%, #0f0a08 80%);
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 60px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Sol Kısım: Telefon Çerçevesi */
+    .phone-column {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .phone-mockup {
+      width: 390px;
+      height: 844px;
+      background-color: #000;
+      border: 14px solid var(--wood-dark);
+      border-radius: 48px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 0 4px var(--wood-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Telefon çentiği */
+    .phone-mockup::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 25px;
+      background-color: var(--wood-dark);
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+      z-index: 10;
+    }
+
+    .phone-mockup iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background-color: #1e1e1e;
+    }
+
+    /* Sağ Kısım: Açıklamalar */
+    .info-column {
+      flex: 1.2;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .app-title {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--gold);
+      text-shadow: 2px 4px 0px rgba(0, 0, 0, 0.5);
+      letter-spacing: -1px;
+      line-height: 1.1;
+    }
+
+    .app-subtitle {
+      font-size: 20px;
+      color: var(--gold-light);
+      font-weight: 400;
+      margin-top: -10px;
+    }
+
+    .divider {
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+      border-radius: 2px;
+    }
+
+    .description {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 16px;
+      background: rgba(46, 28, 21, 0.3);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(93, 64, 55, 0.2);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateX(5px);
+      border-color: var(--gold);
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+    }
+
+    .feature-text h3 {
+      font-size: 18px;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .feature-text p {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.4;
+    }
+
+    .credits {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #666;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 16px;
+      line-height: 1.5;
+    }
+
+    /* Mobil Uyum */
+    @media (max-width: 900px) {
+      body {
+        padding: 20px;
+      }
+      .container {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+      }
+      .info-column {
+        align-items: center;
+      }
+      .divider {
+        width: 100%;
+        background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+      }
+      .feature-item {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sol: İnteraktif Telefon Alanı -->
+    <div class="phone-column">
+      <div class="phone-mockup">
+        <!-- iframe içinde Flutter web uygulamamız çalışacak -->
+        <iframe src="app/index.html"></iframe>
+      </div>
+    </div>
+
+    <!-- Sağ: Açıklama ve Detaylar -->
+    <div class="info-column">
+      <h1 class="app-title">DOOMCAT FOCUS</h1>
+      <p class="app-subtitle">Pixel JRPG Odaklanma & Pomodoro Uygulaması</p>
+      
+      <div class="divider"></div>
+      
+      <p class="description">
+        Doomcat Focus, sıkıcı odaklanma ve çalışma turlarını sürükleyici bir piksel rol yapma oyununa (RPG) dönüştürür. 
+        Odaklandıkça canavarları yener, altın biriktirir ve karakterinizi puan dükkanından aldığınız ekipmanlarla güçlendirirsiniz. 
+        Geliştirme sürecini anında test etmeniz için hazırlanmış canlı demoyu soldaki telefon simülasyonundan kullanabilirsiniz.
+      </p>
+      
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">⏱️</div>
+          <div class="feature-text">
+            <h3>RPG Odaklanma & Can Barı</h3>
+            <p>Odaklanırken can barınız yavaşça azalır. Süre bittiğinde canavarı yenersiniz, pes ederseniz can barınız sıfırlanır ve ceza alırsınız.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">🎒</div>
+          <div class="feature-text">
+            <h3>Sürükle-Bırak Ekipman & Envanter</h3>
+            <p>Kask, kılıç, zırh, pet ve kolyeleri sürükleyip bırakarak karakterinize kuşandırın. Envanterinizi dilediğiniz gibi düzenleyin.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">💰</div>
+          <div class="feature-text">
+            <h3>Puan Dükkanı</h3>
+            <p>Odaklanarak kazandığınız altınlarla marketten yeni ve güçlü ekipmanlar, mola kurabiyeleri veya can iksirleri satın alın.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">🎵</div>
+          <div class="feature-text">
+            <h3>JRPG Müzikleri</h3>
+            <p>Idle (boşta) durumunda ve menülerde çalan, odaklanma başladığında ise otomatik sessize alınan 4 adet atmosferik müzik.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="credits">
+        Bu uygulama yapay zeka (Antigravity AI) kullanılarak sadece "fikir" olarak geliştirilmiştir.<br>
+        Müzikler: alkakrab.itch.io | Tasarım JRPG standartlarına uygun olarak kodlanmıştır.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
